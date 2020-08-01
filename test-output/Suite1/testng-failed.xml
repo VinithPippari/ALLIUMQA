@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Suite1]" parallel="classes">
+  <test thread-count="2" name="name(failed)" parallel="classes">
+    <parameter name="webdriverpath" value="C:\chromedriver//chromedriver.exe"/>
+    <parameter name="password" value="Vinith6@"/>
+    <parameter name="changeFirstName" value="VinithKumar"/>
+    <parameter name="orderNo" value="2300"/>
+    <parameter name="upgradeMealPlanNumber" value="9"/>
+    <parameter name="atmDebitCardNumber" value="9424"/>
+    <parameter name="webdriver" value="webdriver.chrome.driver"/>
+    <parameter name="addressPhoneNumber" value="5478963210"/>
+    <parameter name="changeLastName" value="Pippari"/>
+    <parameter name="url" value="http://qa.alliumdirect.com/"/>
+    <parameter name="email" value="vinithk805@gmail.com"/>
+    <parameter name="mealPlanNumber" value="9"/>
+    <classes>
+      <class name="com.Classes.SelectAMealPlanWithNewMeals">
+        <methods>
+          <include name="selectTheCardByDefault" invocation-numbers="0"/>
+          <include name="selectTheAddressByDeafult" invocation-numbers="0"/>
+          <include name="clickOnGetStarted"/>
+          <include name="selectTheMeals" invocation-numbers="0"/>
+          <include name="loginAfterSelectingTheMeals" invocation-numbers="0"/>
+          <include name="chooseAMealPlan"/>
+        </methods>
+      </class> <!-- com.Classes.SelectAMealPlanWithNewMeals -->
+    </classes>
+  </test> <!-- name(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

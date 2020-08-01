@@ -13,15 +13,14 @@ public class SystemConfguration {
 		Properties props=new Properties();  
 		try {
 			FileReader reader=new FileReader(""
-					+ "C:\\git projects\\ALLIUM\\ALLIUM\\src\\test\\resources\\config.properties");   
+					+ "C:\\let me call\\git\\ALLIUMQA\\src\\main\\resources\\config.properties");   
 			props.load(reader);   
 			
 			String s1 = props.getProperty("webdriver");
-			System.out.println(s1);
+			System.out.println("Your WebDriver is : "+s1);
 			String s2 =props.getProperty("webdriverpath");
-		    System.out.println(props.getProperty("webdriverpath"));
-		    System.setProperty(s1 , s2);
-		  
+		    System.out.println("Your WebDriverPath is : "+s2);
+		    System.setProperty(s1 , s2);	  
 		}
 		catch(Exception e)
 		{
