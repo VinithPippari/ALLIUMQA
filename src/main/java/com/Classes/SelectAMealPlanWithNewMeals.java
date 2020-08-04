@@ -30,7 +30,9 @@ public class SelectAMealPlanWithNewMeals {
 		String mealPlanButton = "//a[contains(text(),' Meal plans')]/..";
 		
 		WebElement mealPlan = Driver.getDriver().findElement(By.xpath(mealPlanButton));
+		
         ExplicitWait.forClickableAndVisibility(mealPlanButton, 10);
+        
 		mealPlan.click();
 	}
 
@@ -49,7 +51,8 @@ public class SelectAMealPlanWithNewMeals {
 
 		JavascriptExecutor je = (JavascriptExecutor) Driver.getDriver();
 
-		Thread.sleep(2000);
+		ExplicitWait.forClickableAndVisibility(chooseAMealPlanXpath, 10);
+		
 		WebElement mealPlan = Driver.getDriver().findElement(By.xpath(chooseAMealPlanXpath));
 
 		// now execute query which actually will scroll until that element is not
@@ -59,16 +62,12 @@ public class SelectAMealPlanWithNewMeals {
 
 		je.executeScript("window.scrollBy(0,-300)");
 		
-		ExplicitWait.forClickableAndVisibility(chooseAMealPlanXpath, 10);
-
 		mealPlan.click();
 	}
 
 	@Parameters({ "mealPlanNumber" })
 	@Test(alwaysRun = true, dependsOnMethods = { "chooseAMealPlan" }, enabled = true)
 	public void selectTheMeals(String mealPlanNumber) throws InterruptedException {
-
-		Thread.sleep(2000);
 
 		String mealNumberXpathPart1 = "//div[contains(text(),'";
 
@@ -78,38 +77,37 @@ public class SelectAMealPlanWithNewMeals {
 
 		System.out.println(mealNumberXpath);
 
+		ExplicitWait.forClickableAndVisibility(mealNumberXpath, 10);
+		
 		String mealNoText = Driver.getDriver().findElement(By.xpath(mealNumberXpath)).getText();
 
 		if (mealNoText.equals("Add 4 meals to continue")) {
 			System.out.println("4meals you have selected");
 
 			String firstMeal = "//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button";
-			//one = wait.until(ExpectedConditions.elementToBeClickable(
-				//	By.xpath("//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button")));
-
+			
 			WebElement one = Driver.getDriver().findElement(By.xpath(firstMeal));
 			
 			ExplicitWait.forClickableAndVisibility(firstMeal, 10);
+			
 			one.click();
 
 			
 			String secondMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
+			
 			WebElement two = Driver.getDriver().findElement(By.xpath(secondMeal));
 
-		//	two = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button")));
-
 			ExplicitWait.forClickableAndVisibility(secondMeal, 10);
+			
 			two.click();
 
 			
 			String thirdMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
+			
 			WebElement three = Driver.getDriver().findElement(By.xpath(thirdMeal));
 
-		//	three = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button")));
-
 			ExplicitWait.forClickableAndVisibility(thirdMeal, 10);
+			
 			three.click();
 
 			
@@ -117,18 +115,16 @@ public class SelectAMealPlanWithNewMeals {
 			
 			WebElement four = Driver.getDriver().findElement(By.xpath(fourthMeal));
 
-		//	four = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'South west Corn bread ')]/..//div//button ")));
 			ExplicitWait.forClickableAndVisibility(fourthMeal, 10);
+			
 			four.click();
 
 			String continueButtonXpath = "//button//span[contains(text(),'Continue')]";
-			WebElement continueButton = Driver.getDriver().findElement(By.xpath(continueButtonXpath));
-
-		//	continueButton = wait.until(
-			//		ExpectedConditions.elementToBeClickable(By.xpath("//button//span[contains(text(),'Continue')]")));
-
+			
 			ExplicitWait.forClickableAndVisibility(continueButtonXpath, 10);
+			
+			WebElement continueButton = Driver.getDriver().findElement(By.xpath(continueButtonXpath));
+	
 			continueButton.click();
 
 			Driver.getDriver().findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
@@ -137,33 +133,30 @@ public class SelectAMealPlanWithNewMeals {
 		else if (mealNoText.equals("Add 6 meals to continue")) {
 			System.out.println("6 meals you have selected");
 
-			String firstMeal = "//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button";
-			//one = wait.until(ExpectedConditions.elementToBeClickable(
-				//	By.xpath("//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button")));
-
+            String firstMeal = "//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button";
+			
 			WebElement one = Driver.getDriver().findElement(By.xpath(firstMeal));
 			
 			ExplicitWait.forClickableAndVisibility(firstMeal, 10);
+			
 			one.click();
 
 			
 			String secondMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
+			
 			WebElement two = Driver.getDriver().findElement(By.xpath(secondMeal));
 
-		//	two = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button")));
-
 			ExplicitWait.forClickableAndVisibility(secondMeal, 10);
+			
 			two.click();
 
 			
 			String thirdMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
+			
 			WebElement three = Driver.getDriver().findElement(By.xpath(thirdMeal));
 
-		//	three = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button")));
-
 			ExplicitWait.forClickableAndVisibility(thirdMeal, 10);
+			
 			three.click();
 
 			
@@ -171,42 +164,36 @@ public class SelectAMealPlanWithNewMeals {
 			
 			WebElement four = Driver.getDriver().findElement(By.xpath(fourthMeal));
 
-		//	four = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'South west Corn bread ')]/..//div//button ")));
 			ExplicitWait.forClickableAndVisibility(fourthMeal, 10);
+			
 			four.click();
 
 			String FifthMeal = "//div[contains(text(),'Kelp Noodle Miso Bowl ')]/..//div//button";
 
 			WebElement five = Driver.getDriver().findElement(By.xpath(FifthMeal));
 
-			System.out.println(five);
-			
 			((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", five);
 			
 			((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0,-300)");
 
-		//	five = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(FifthMeal)));
-
 			ExplicitWait.forClickableAndVisibility(FifthMeal, 10);
+			
 			five.click();
 
 			String sixthMeal ="//div[contains(text(),'Raw-Chilada ')]/..//div//button";
+			
 			WebElement six= Driver.getDriver().findElement(By.xpath(sixthMeal));
 
-		//	six = wait.until(ExpectedConditions
-			//		.elementToBeClickable(By.xpath("//div[contains(text(),'Raw-Chilada ')]/..//div//button")));
-
 			ExplicitWait.forClickableAndVisibility(sixthMeal, 10);
+			
 			six.click();
 
-			String continueButtonXpath = "//button//span[contains(text(),'Continue')]";
-			WebElement continueButton = Driver.getDriver().findElement(By.xpath(continueButtonXpath));
-
-		//	continueButton = wait.until(
-			//		ExpectedConditions.elementToBeClickable(By.xpath("//button//span[contains(text(),'Continue')]")));
-
+            String continueButtonXpath = "//button//span[contains(text(),'Continue')]";
+			
 			ExplicitWait.forClickableAndVisibility(continueButtonXpath, 10);
+			
+			WebElement continueButton = Driver.getDriver().findElement(By.xpath(continueButtonXpath));
+	
 			continueButton.click();
 
 			Driver.getDriver().findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
@@ -215,33 +202,30 @@ public class SelectAMealPlanWithNewMeals {
 		else if (mealNoText.equals("Add 9 meals to continue")) {
 			System.out.println("9 meals you have selected");
 
-			String firstMeal = "//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button";
-			//one = wait.until(ExpectedConditions.elementToBeClickable(
-				//	By.xpath("//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button")));
-
+String firstMeal = "//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button";
+			
 			WebElement one = Driver.getDriver().findElement(By.xpath(firstMeal));
 			
 			ExplicitWait.forClickableAndVisibility(firstMeal, 10);
+			
 			one.click();
 
 			
 			String secondMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
+			
 			WebElement two = Driver.getDriver().findElement(By.xpath(secondMeal));
 
-		//	two = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button")));
-
 			ExplicitWait.forClickableAndVisibility(secondMeal, 10);
+			
 			two.click();
 
 			
 			String thirdMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
+			
 			WebElement three = Driver.getDriver().findElement(By.xpath(thirdMeal));
 
-		//	three = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button")));
-
 			ExplicitWait.forClickableAndVisibility(thirdMeal, 10);
+			
 			three.click();
 
 			
@@ -249,61 +233,55 @@ public class SelectAMealPlanWithNewMeals {
 			
 			WebElement four = Driver.getDriver().findElement(By.xpath(fourthMeal));
 
-		//	four = wait.until(ExpectedConditions.elementToBeClickable(
-			//		By.xpath("//div[contains(text(),'South west Corn bread ')]/..//div//button ")));
 			ExplicitWait.forClickableAndVisibility(fourthMeal, 10);
+			
 			four.click();
 
 			String FifthMeal = "//div[contains(text(),'Kelp Noodle Miso Bowl ')]/..//div//button";
 
 			WebElement five = Driver.getDriver().findElement(By.xpath(FifthMeal));
 
-			System.out.println(five);
-			
 			((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", five);
 			
 			((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0,-300)");
 
-		//	five = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(FifthMeal)));
-
 			ExplicitWait.forClickableAndVisibility(FifthMeal, 10);
+			
 			five.click();
 
 			String sixthMeal ="//div[contains(text(),'Raw-Chilada ')]/..//div//button";
+			
 			WebElement six= Driver.getDriver().findElement(By.xpath(sixthMeal));
 
-		//	six = wait.until(ExpectedConditions
-			//		.elementToBeClickable(By.xpath("//div[contains(text(),'Raw-Chilada ')]/..//div//button")));
-
 			ExplicitWait.forClickableAndVisibility(sixthMeal, 10);
+			
 			six.click();
+
 
 			String seventhMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
 
 			WebElement seven = Driver.getDriver().findElement(By.xpath(seventhMeal));
 
-			Thread.sleep(500);
 			((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", seven);
-			Thread.sleep(500);
+			
 			((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0,-300)");
 
-		//	seven = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(seventhMeal)));
-
 			ExplicitWait.forClickableAndVisibility(seventhMeal, 10);
+			
 			seven.click();
 
 			String eightMeal = "//div[contains(text(),'South west Corn bread ')]/..//div//button";
 
 			WebElement eight = Driver.getDriver().findElement(By.xpath(eightMeal));
 
-			Thread.sleep(500);
 			((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", eight);
-			Thread.sleep(500);
+			
 			((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0,-300)");
 
 			//eight = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(eightMeal)));
 
 			ExplicitWait.forClickableAndVisibility(eightMeal, 10);
+			
 			eight.click();
 
 			String ninethMeal = "//div[contains(text(),'South west Corn bread ')]/..//div//button";
@@ -321,12 +299,13 @@ public class SelectAMealPlanWithNewMeals {
 			nine.click();
 
 			String continueButtonXpath = "//button//span[contains(text(),'Continue')]";
+			ExplicitWait.forClickableAndVisibility(continueButtonXpath, 10);
 			WebElement continueButton = Driver.getDriver().findElement(By.xpath(continueButtonXpath));
 
 		//	continueButton = wait.until(
 			//		ExpectedConditions.elementToBeClickable(By.xpath("//button//span[contains(text(),'Continue')]")));
 
-			ExplicitWait.forClickableAndVisibility(continueButtonXpath, 10);
+			
 			continueButton.click();
 
 			Driver.getDriver().findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
@@ -337,14 +316,14 @@ public class SelectAMealPlanWithNewMeals {
 			System.out.println("12 meals you have selected");
 
 			String firstMeal = "//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button";
+			
+			ExplicitWait.forClickableAndVisibility(firstMeal, 10);
 			//one = wait.until(ExpectedConditions.elementToBeClickable(
 				//	By.xpath("//div[contains(text(),'Sunflunflower Seed Pate Ramaine wraps ')]/..//div//button")));
 
 			WebElement one = Driver.getDriver().findElement(By.xpath(firstMeal));
-			
-			ExplicitWait.forClickableAndVisibility(firstMeal, 10);
+					
 			one.click();
-
 			
 			String secondMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
 			WebElement two = Driver.getDriver().findElement(By.xpath(secondMeal));
@@ -353,9 +332,9 @@ public class SelectAMealPlanWithNewMeals {
 			//		By.xpath("//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button")));
 
 			ExplicitWait.forClickableAndVisibility(secondMeal, 10);
+			
 			two.click();
 
-			
 			String thirdMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
 			WebElement three = Driver.getDriver().findElement(By.xpath(thirdMeal));
 
@@ -364,7 +343,6 @@ public class SelectAMealPlanWithNewMeals {
 
 			ExplicitWait.forClickableAndVisibility(thirdMeal, 10);
 			three.click();
-
 			
 			String fourthMeal = "//div[contains(text(),'South west Corn bread ')]/..//div//button";
 			
@@ -397,6 +375,7 @@ public class SelectAMealPlanWithNewMeals {
 			//		.elementToBeClickable(By.xpath("//div[contains(text(),'Raw-Chilada ')]/..//div//button")));
 
 			ExplicitWait.forClickableAndVisibility(sixthMeal, 10);
+			
 			six.click();
 
 			String seventhMeal = "//div[contains(text(),'Masuman Red Curry Vegetable Tofu ')]/..//div//button";
@@ -486,16 +465,15 @@ public class SelectAMealPlanWithNewMeals {
 			
 
 			String continueButtonXpath = "//button//span[contains(text(),'Continue')]";
+			ExplicitWait.forClickableAndVisibility(continueButtonXpath, 10);
 			WebElement continueButton = Driver.getDriver().findElement(By.xpath(continueButtonXpath));
 
-		//	continueButton = wait.until(
-			//		ExpectedConditions.elementToBeClickable(By.xpath("//button//span[contains(text(),'Continue')]")));
+			//	continueButton = wait.until(
+				//		ExpectedConditions.elementToBeClickable(By.xpath("//button//span[contains(text(),'Continue')]")));
 
-			ExplicitWait.forClickableAndVisibility(continueButtonXpath, 10);
-			continueButton.click();
+				continueButton.click();
 
-			Driver.getDriver().findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
-
+				Driver.getDriver().findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
 		}
 
 		else if (mealNoText.equals("Add 7 meals to continue")) {
@@ -579,16 +557,16 @@ public class SelectAMealPlanWithNewMeals {
 			seven.click();
 
 			String continueButtonXpath = "//button//span[contains(text(),'Continue')]";
+			
+			ExplicitWait.forClickableAndVisibility(continueButtonXpath, 10);
 			WebElement continueButton = Driver.getDriver().findElement(By.xpath(continueButtonXpath));
 
-		//	continueButton = wait.until(
-			//		ExpectedConditions.elementToBeClickable(By.xpath("//button//span[contains(text(),'Continue')]")));
+			//	continueButton = wait.until(
+				//		ExpectedConditions.elementToBeClickable(By.xpath("//button//span[contains(text(),'Continue')]")));
 
-			ExplicitWait.forClickableAndVisibility(continueButtonXpath, 10);
-			continueButton.click();
+				continueButton.click();
 
-			Driver.getDriver().findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
-
+				Driver.getDriver().findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
 		}
 
 	}

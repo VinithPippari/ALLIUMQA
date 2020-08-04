@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Suite1]" parallel="classes">
-  <test thread-count="2" name="name(failed)" parallel="classes">
+<suite guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [Suite1]">
+  <test thread-count="5" verbose="5" name="name(failed)">
     <parameter name="webdriverpath" value="C:\chromedriver//chromedriver.exe"/>
     <parameter name="password" value="Vinith6@"/>
     <parameter name="changeFirstName" value="VinithKumar"/>
@@ -13,7 +13,7 @@
     <parameter name="changeLastName" value="Pippari"/>
     <parameter name="url" value="http://qa.alliumdirect.com/"/>
     <parameter name="email" value="vinithk805@gmail.com"/>
-    <parameter name="mealPlanNumber" value="9"/>
+    <parameter name="mealPlanNumber" value="12"/>
     <classes>
       <class name="com.Classes.SelectAMealPlanWithNewMeals">
         <methods>
